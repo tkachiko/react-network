@@ -1,0 +1,28 @@
+.nav {
+  background-color: var(--background-color);
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  font-size: var(--font-size);
+}
+
+.list {
+  padding: 30px 115px 0 30px;
+}
+
+.listItem {
+  list-style: none;
+  padding: 0 0 20px 0;
+}
+
+.listItem:nth-child(5) {
+  padding: 60px 0 0 0;
+}
+
+.link {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: white;
+}
