@@ -1,3 +1,4 @@
+import MyPosts from './MyPosts/MyPosts';
 import styles from './Profile.module.css';
 
 const Profile = () => {
@@ -7,15 +8,7 @@ const Profile = () => {
         <img className={styles.coverImage} src='https://vistapointe.net/images/reindeer-9.jpg' alt='cover-image' />
       </div>
       <div>avatar + description</div>
-      <div>
-        my posts
-        <div>new post</div>
-      </div>
-      <div>
-        posts
-        <div>post 1</div>
-        <div>post 2</div>
-      </div>
+      <MyPosts />
     </main>
   );
 };
