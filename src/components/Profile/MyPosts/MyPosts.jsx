@@ -12,7 +12,8 @@ const MyPosts = () => {
         </div>
       </div>
       <div className={styles.item}>
-        <Post />
+        <Post message="Hi how are you?" likesCount="7" />
+        <Post message="It's my first post!" likesCount="15" />
       </div>
     </div>
   );
