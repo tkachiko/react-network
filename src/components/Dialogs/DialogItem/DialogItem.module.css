@@ -1,0 +1,12 @@
+.dialogItem {
+  padding: 0 0 15px 0;
+}
+
+.dialogLink {
+  text-decoration: none;
+  color: #000;
+}
+
+.dialogLink.active {
+  color: var(--main-color);
+}
