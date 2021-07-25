@@ -26,3 +26,8 @@
 .link:hover {
   color: white;
 }
+
+.link.active {
+  color: white;
+  cursor: default;
+}
