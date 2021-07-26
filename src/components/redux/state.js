@@ -5,7 +5,7 @@ const state = {
       { id: 2, message: `It's my first post!`, likesCount: 15 },
     ],
   },
-  DialogsPage: {
+  dialogsPage: {
     dialogs: [
       { id: 1, name: 'Emmett' },
       { id: 2, name: 'Marty' },
