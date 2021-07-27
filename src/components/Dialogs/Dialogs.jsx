@@ -11,7 +11,15 @@ const Dialogs = ({ dialogs, messages }) => {
     <div>
       <div className={styles.dialogs}>
         <div className={styles.dialogsItems}>{dialogsElements}</div>
-        <div className={styles.messages}>{messagesElemnts}</div>
+        <div>
+          <div className={styles.messages}>{messagesElemnts}</div>
+          <div className={styles.inputBlock}>
+          <textarea className={styles.textarea}></textarea>
+          <div className={styles.buttonWrapper}>
+            <input type='button' value='Send' className={styles.button} />
+          </div>
+          </div>
+        </div>
       </div>
     </div>
   );
