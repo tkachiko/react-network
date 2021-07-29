@@ -7,7 +7,6 @@ import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { addPost } from './components/redux/state';
 
 function App(props) {
   return (
@@ -17,7 +16,14 @@ function App(props) {
       <div className='app-wrapper__content'>
         <Route
           path='/profile'
-          render={() => <Profile posts={props.posts} addPost={addPost} />}
+          render={() => (
+            <Profile
+              posts={props.posts}
+              addPost={props.addPost}
+              newPostText={props.newPostText}
+              updateNewPostText={props.updateNewPostText}
+            />
+          )}
         />
         <Route
           path='/dialogs'
