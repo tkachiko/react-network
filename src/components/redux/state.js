@@ -20,16 +20,17 @@ const state = {
     messages: [
       { id: 1, message: 'Great Scott!' },
       { id: 2, message: 'Nobody calls me chicken!' },
-      { id: 2, message: 'No way!' },
-      { id: 2, message: "How's it going?" },
-      { id: 2, message: 'Maybe later' },
-      { id: 2, message: 'Woof!' },
+      { id: 3, message: 'No way!' },
+      { id: 4, message: "How's it going?" },
+      { id: 5, message: 'Maybe later' },
+      { id: 6, message: 'Woof!' },
     ],
+    newMessageText: '',
   },
 };
 
 export const addPost = () => {
-  let newPost = {
+  const newPost = {
     id: 3,
     message: state.profilePage.newPostText,
     likesCount: 0,
@@ -41,6 +42,21 @@ export const addPost = () => {
 
 export const updateNewPostText = newText => {
   state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+};
+
+export const sendMessage = () => {
+  const mewMessage = {
+    id: 7,
+    message: state.dialogsPage.newMessageText,
+  };
+  state.dialogsPage.messages.push(mewMessage);
+  updateNewMessageText('');
+  rerenderEntireTree(state);
+};
+
+export const updateNewMessageText = newText => {
+  state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 };
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { addPost, updateNewPostText } from './components/redux/state';
+import { addPost, updateNewPostText, sendMessage, updateNewMessageText } from './components/redux/state';
 
 export let rerenderEntireTree = state => {
   ReactDOM.render(
@@ -16,6 +16,9 @@ export let rerenderEntireTree = state => {
           newPostText={state.profilePage.newPostText}
           updateNewPostText={updateNewPostText}
           addPost={addPost}
+          mewMessage={state.dialogsPage.mewMessage}
+          updateNewMessageText={updateNewMessageText}
+          sendMessage={sendMessage}
         />
       </BrowserRouter>
     </React.StrictMode>,
