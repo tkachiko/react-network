@@ -41,13 +41,13 @@ const Dialogs = ({
               ref={newMessageElement}
               value={mewMessage}
               className={styles.textarea}
-            ></textarea>
+            />
             <div className={styles.buttonWrapper}>
               <input
+                onClick={sendNewMessage}
                 type='button'
                 value='Send'
                 className={styles.button}
-                onClick={sendNewMessage}
               />
             </div>
           </div>

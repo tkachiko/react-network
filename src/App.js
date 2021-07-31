@@ -9,6 +9,7 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
 function App(props) {
+  // debugger
   return (
     <div className='app-wrapper'>
       <Header />
@@ -18,9 +19,9 @@ function App(props) {
           path='/profile'
           render={() => (
             <Profile
-              posts={props.posts}
+              posts={props.state.profilePage.posts}
               addPost={props.addPost}
-              newPostText={props.newPostText}
+              newPostText={props.state.profilePage.newPostText}
               updateNewPostText={props.updateNewPostText}
             />
           )}
@@ -29,10 +30,10 @@ function App(props) {
           path='/dialogs'
           render={() => (
             <Dialogs
-              dialogs={props.dialogs}
-              messages={props.messages}
+              dialogs={props.state.dialogsPage.dialogs}
+              messages={props.state.dialogsPage.messages}
               sendMessage={props.sendMessage}
-              mewMessage={props.mewMessage}
+              mewMessage={props.state.dialogsPage.newMessageText}
               updateNewMessageText={props.updateNewMessageText}
             />
           )}

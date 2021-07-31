@@ -16,13 +16,18 @@ const MyPosts = ({ posts, addPost, newPostText, updateNewPostText }) => {
   const onPostChange = () => {
     let text = newPostElement.current.value;
     updateNewPostText(text);
-  }
+  };
 
   return (
     <div className={styles.posts}>
       my posts
       <div>
-        <textarea onChange={onPostChange} ref={newPostElement} className={styles.textarea} value={newPostText} />
+        <textarea
+          onChange={onPostChange}
+          ref={newPostElement}
+          value={newPostText}
+          className={styles.textarea}
+        />
         <div className={styles.buttonWrapper}>
           <input
             onClick={addNewPost}
