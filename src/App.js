@@ -20,9 +20,8 @@ function App(props) {
           render={() => (
             <Profile
               posts={props.state.profilePage.posts}
-              addPost={props.addPost}
               newPostText={props.state.profilePage.newPostText}
-              updateNewPostText={props.updateNewPostText}
+              dispatch={props.dispatch}
             />
           )}
         />
@@ -32,9 +31,8 @@ function App(props) {
             <Dialogs
               dialogs={props.state.dialogsPage.dialogs}
               messages={props.state.dialogsPage.messages}
-              sendMessage={props.sendMessage}
               mewMessage={props.state.dialogsPage.newMessageText}
-              updateNewMessageText={props.updateNewMessageText}
+              dispatch={props.dispatch}
             />
           )}
         />

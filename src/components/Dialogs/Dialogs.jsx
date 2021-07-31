@@ -3,13 +3,7 @@ import DialogItem from './DialogItem/DialogItem';
 import styles from './Dialogs.module.css';
 import Message from './Message/Message';
 
-const Dialogs = ({
-  dialogs,
-  messages,
-  sendMessage,
-  mewMessage,
-  updateNewMessageText,
-}) => {
+const Dialogs = ({ dialogs, messages, mewMessage, dispatch }) => {
   const dialogsElements = dialogs.map(dialog => (
     <DialogItem name={dialog.name} id={dialog.id} />
   ));
@@ -21,12 +15,12 @@ const Dialogs = ({
   let newMessageElement = React.createRef();
 
   const sendNewMessage = () => {
-    sendMessage(mewMessage);
+    dispatch({type: 'SEND-MESSAGE'});
   };
 
   const onMessageChange = () => {
     let text = newMessageElement.current.value;
-    updateNewMessageText(text);
+    dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text});
   };
 
   return (

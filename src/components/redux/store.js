@@ -27,48 +27,47 @@ const store = {
       newMessageText: 'Your message here',
     },
   },
-
-  getState() {
-    return this._state;
-  },
-
   _callSubscriber() {
     console.log('State has been changed');
   },
 
-  addPost() {
-    const newPost = {
-      id: 3,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-    };
-    this._state.profilePage.posts.push(newPost);
-    this.updateNewPostText('');
-    this._callSubscriber(this._state);
+  getState() {
+    return this._state;
   },
-
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
-
-  sendMessage() {
-    const mewMessage = {
-      id: 7,
-      message: this._state.dialogsPage.newMessageText,
-    };
-    this._state.dialogsPage.messages.push(mewMessage);
-    this.updateNewMessageText('');
-    this._callSubscriber(this._state);
-  },
-
-  updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._callSubscriber(this._state);
-  },
-
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    switch (action.type) {
+      case 'ADD-POST':
+        const newPost = {
+          id: 3,
+          message: this._state.profilePage.newPostText,
+          likesCount: 0,
+        };
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber(this._state);
+        break;
+      case 'UPDATE-NEW-POST-TEXT':
+        this._state.profilePage.newPostText = action.newText;
+        this._callSubscriber(this._state);
+        break;
+      case 'SEND-MESSAGE':
+        const mewMessage = {
+          id: 7,
+          message: this._state.dialogsPage.newMessageText,
+        };
+        this._state.dialogsPage.messages.push(mewMessage);
+        this._state.dialogsPage.newMessageText = '';
+        this._callSubscriber(this._state);
+        break;
+      case 'UPDATE-NEW-MESSAGE-TEXT':
+        this._state.dialogsPage.newMessageText = action.newText;
+        this._callSubscriber(this._state);
+        break;
+    }
   },
 };
 
