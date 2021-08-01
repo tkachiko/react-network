@@ -1,10 +1,14 @@
-import React from 'react';
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../redux/dialogs-reducer';
 import DialogItem from './DialogItem/DialogItem';
 import styles from './Dialogs.module.css';
 import Message from './Message/Message';
 
-const Dialogs = ({ dialogs, messages, mewMessage, dispatch }) => {
+const Dialogs = ({
+  dialogs,
+  messages,
+  mewMessage,
+  sendNewMessage,
+  updateNewMessageText,
+}) => {
   const dialogsElements = dialogs.map(dialog => (
     <DialogItem name={dialog.name} id={dialog.id} />
   ));
@@ -13,13 +17,13 @@ const Dialogs = ({ dialogs, messages, mewMessage, dispatch }) => {
     <Message message={message.message} id={message.id} />
   ));
 
-  const sendNewMessage = () => {
-    dispatch(sendMessageActionCreator());
+  const sendMessage = () => {
+    sendNewMessage();
   };
 
-  const onMessageChange = (e) => {
+  const onMessageChange = e => {
     let text = e.target.value;
-    dispatch(updateNewMessageTextActionCreator(text));
+    updateNewMessageText(text);
   };
 
   return (
@@ -37,7 +41,7 @@ const Dialogs = ({ dialogs, messages, mewMessage, dispatch }) => {
             />
             <div className={styles.buttonWrapper}>
               <input
-                onClick={sendNewMessage}
+                onClick={sendMessage}
                 type='button'
                 value='Send'
                 className={styles.button}
