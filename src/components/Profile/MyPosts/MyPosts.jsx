@@ -8,14 +8,12 @@ const MyPosts = ({ posts, dispatch, newPostText }) => {
     <Post message={post.message} likesCount={post.likesCount} id={post.id} />
   ));
 
-  let newPostElement = React.createRef();
-
   const addNewPost = () => {
     dispatch(addPostActionCreator());
   };
 
-  const onPostChange = () => {
-    let text = newPostElement.current.value;
+  const onPostChange = (e) => {
+    let text = e.target.value;
     dispatch(updateNewPostTextActionCreator(text));
   };
 
@@ -25,8 +23,8 @@ const MyPosts = ({ posts, dispatch, newPostText }) => {
       <div>
         <textarea
           onChange={onPostChange}
-          ref={newPostElement}
           value={newPostText}
+          placeholder="What's on your mind?"
           className={styles.textarea}
         />
         <div className={styles.buttonWrapper}>

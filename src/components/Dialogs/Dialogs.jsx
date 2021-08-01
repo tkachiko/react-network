@@ -13,14 +13,12 @@ const Dialogs = ({ dialogs, messages, mewMessage, dispatch }) => {
     <Message message={message.message} id={message.id} />
   ));
 
-  let newMessageElement = React.createRef();
-
   const sendNewMessage = () => {
     dispatch(sendMessageActionCreator());
   };
 
-  const onMessageChange = () => {
-    let text = newMessageElement.current.value;
+  const onMessageChange = (e) => {
+    let text = e.target.value;
     dispatch(updateNewMessageTextActionCreator(text));
   };
 
@@ -33,8 +31,8 @@ const Dialogs = ({ dialogs, messages, mewMessage, dispatch }) => {
           <div className={styles.inputBlock}>
             <textarea
               onChange={onMessageChange}
-              ref={newMessageElement}
               value={mewMessage}
+              placeholder='Enter your message'
               className={styles.textarea}
             />
             <div className={styles.buttonWrapper}>

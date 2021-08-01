@@ -10,7 +10,7 @@ const store = {
         { id: 1, message: 'Hi how are you?', likesCount: 7 },
         { id: 2, message: `It's my first post!`, likesCount: 15 },
       ],
-      newPostText: 'Wake the f**k up, Samurai! We have a city to burn.',
+      newPostText: '',
     },
     dialogsPage: {
       dialogs: [
@@ -29,7 +29,7 @@ const store = {
         { id: 5, message: 'Maybe later' },
         { id: 6, message: 'Woof!' },
       ],
-      newMessageText: 'Your message here',
+      newMessageText: '',
     },
   },
   _callSubscriber() {
