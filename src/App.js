@@ -14,10 +14,10 @@ function App(props) {
       <Header />
       <Navbar />
       <div className='app-wrapper__content'>
-        <Route path='/profile' render={() => <Profile store={props.store} />} />
+        <Route path='/profile' render={() => <Profile />} />
         <Route
           path='/dialogs'
-          render={() => <DialogsContainer store={props.store} />}
+          render={() => <DialogsContainer />}
         />
         <Route path='/news' component={News} />
         <Route path='/music' component={Music} />
