@@ -10,11 +10,11 @@ const Dialogs = ({
   updateNewMessageText,
 }) => {
   const dialogsElements = dialogs.map(dialog => (
-    <DialogItem name={dialog.name} id={dialog.id} />
+    <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} />
   ));
 
   const messagesElemnts = messages.map(message => (
-    <Message message={message.message} id={message.id} />
+    <Message message={message.message} key={message.id} id={message.id} />
   ));
 
   const sendMessage = () => {

@@ -7,7 +7,7 @@ const initialState = {
     { id: 2, message: `It's my first post!`, likesCount: 15 },
   ],
   newPostText: '',
-}
+};
 
 const profileResucer = (state = initialState, action) => {
   switch (action.type) {
@@ -17,12 +17,13 @@ const profileResucer = (state = initialState, action) => {
         message: state.newPostText,
         likesCount: 0,
       };
-      state.posts.push(newPost);
-      state.newPostText = '';
-      return state;
+      return {
+        ...state,
+        posts: [...state.posts, newPost],
+        newPostText: '',
+      };
     case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText;
-      return state;
+      return { ...state, newPostText: action.newText };
     default:
       return state;
   }
