@@ -20,7 +20,7 @@ function App(props) {
           path='/dialogs'
           render={() => <DialogsContainer />}
         />
-        <Route path='/news' renser={() => <News />} />
+        <Route path='/news' render={() => <News />} />
         <Route path='/music' render={() => <Music />} />
         <Route path='/users' render={() => <UsersContainer />} />
         <Route path='/settings' render={() => <Settings />} />
