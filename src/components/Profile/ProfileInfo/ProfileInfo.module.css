@@ -5,3 +5,9 @@
 .descriptionBlock {
   padding: 20px 0 0 20px;
 }
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
