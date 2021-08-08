@@ -1,14 +1,16 @@
 import { combineReducers, createStore } from 'redux';
-import profileResucer from './profile-reducer';
-import dialogsResucer from './dialogs-reducer';
-import sidebarResucer from './sidebar-reducer';
-import usersResucer from './users-reducer';
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+import sidebarReducer from './sidebar-reducer';
+import usersReducer from './users-reducer';
+import authReducer from './auth-reducer';
 
 const reducers = combineReducers({
-  profilePage: profileResucer,
-  dialogsPage: dialogsResucer,
-  sidebar: sidebarResucer,
-  usersPage: usersResucer,
+  profilePage: profileReducer,
+  dialogsPage: dialogsReducer,
+  sidebar: sidebarReducer,
+  usersPage: usersReducer,
+  auth: authReducer,
 });
 
 const store = createStore(reducers);

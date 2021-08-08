@@ -11,7 +11,7 @@ const initialState = {
   profile: null,
 };
 
-const profileResucer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       const newPost = {
@@ -40,4 +40,4 @@ export const updateNewPostTextActionCreator = text => ({
   newText: text,
 });
 
-export default profileResucer;
+export default profileReducer;
