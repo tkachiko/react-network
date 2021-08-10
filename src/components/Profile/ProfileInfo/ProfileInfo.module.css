@@ -11,3 +11,8 @@
   flex-direction: column;
   padding-top: 20px;
 }
+
+.userPhoto {
+  width: 250px;
+  border-radius: 50%;
+}
