@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { WithAuthRedirect } from '../../HOC/WithAuthRedirect';
 import {
   sendMessageActionCreator,
   updateNewMessageTextActionCreator,
@@ -13,9 +14,9 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    updateNewMessageText: (text) => {
+    updateNewMessageText: text => {
       dispatch(updateNewMessageTextActionCreator(text));
     },
     sendNewMessage: () => {
@@ -24,6 +25,11 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+let withRedirect = WithAuthRedirect(Dialogs);
+
+const DialogsContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withRedirect);
 
 export default DialogsContainer;
