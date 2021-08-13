@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { WithAuthRedirect } from '../../HOC/WithAuthRedirect';
 import Preloader from '../common/Preloader/Preloader';
 import {
@@ -67,4 +68,7 @@ const mapDispatchToProps = {
   unfollow,
 };
 
-export default WithAuthRedirect(connect(mapStateToProps, mapDispatchToProps)(UsersContainer));
+export default compose(
+  WithAuthRedirect,
+  connect(mapStateToProps, mapDispatchToProps),
+)(UsersContainer);
