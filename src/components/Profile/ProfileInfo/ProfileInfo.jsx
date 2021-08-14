@@ -1,6 +1,7 @@
 import Preloader from '../../common/Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
 import userPhoto from './../../../assets/images/user.png';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = props => {
   if (!props.profile) {
@@ -8,13 +9,6 @@ const ProfileInfo = props => {
   }
   return (
     <div>
-      <div>
-        <img
-          className={styles.coverImage}
-          src='https://vistapointe.net/images/reindeer-9.jpg'
-          alt='cover-image'
-        />
-      </div>
       <div className={styles.descriptionBlock}>
         <img
           src={
@@ -26,7 +20,7 @@ const ProfileInfo = props => {
           className={styles.userPhoto}
         />
         <div className={styles.userName}>{props.profile.fullName}</div>
-        <div className={styles.userInfo}>{props.profile.aboutMe}</div>
+        <ProfileStatus status={props.profile.aboutMe} />
       </div>
     </div>
   );

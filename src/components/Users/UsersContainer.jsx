@@ -4,11 +4,9 @@ import { compose } from 'redux';
 import { WithAuthRedirect } from '../../HOC/WithAuthRedirect';
 import Preloader from '../common/Preloader/Preloader';
 import {
-  followSuccess,
   getUsers,
   setCurrentPage,
   toggleIsFollowingProgress,
-  unfollowSuccess,
   follow,
   unfollow,
 } from '../redux/users-reducer';
@@ -19,6 +17,7 @@ class UsersContainer extends React.Component {
   }
 
   onPageChanged = pageNumber => {
+    this.props.setCurrentPage(pageNumber);
     this.props.getUsers(pageNumber, this.props.pageSize);
   };
 
@@ -34,9 +33,6 @@ class UsersContainer extends React.Component {
             currentPage={this.props.currentPage}
             onPageChanged={this.onPageChanged}
             users={this.props.users}
-            unfollowSuccess={this.props.unfollowSuccess}
-            followSuccess={this.props.followSuccess}
-            toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
             followingInProgress={this.props.followingInProgress}
             follow={this.props.follow}
             unfollow={this.props.unfollow}
@@ -59,8 +55,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  followSuccess,
-  unfollowSuccess,
   setCurrentPage,
   toggleIsFollowingProgress,
   getUsers,
