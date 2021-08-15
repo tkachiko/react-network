@@ -6,8 +6,8 @@ const Profile = props => {
     <main>
       <ProfileInfo
         profile={props.profile}
-        aboutMe={props.aboutMe}
-        fullName={props.fullName}
+        status={props.status}
+        updateStatus={props.updateStatus}
       />
       <MyPostsContainer />
     </main>

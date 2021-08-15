@@ -19,8 +19,7 @@ const ProfileInfo = props => {
           alt='user avatar'
           className={styles.userPhoto}
         />
-        <div className={styles.userName}>{props.profile.fullName}</div>
-        <ProfileStatus status={props.profile.aboutMe} />
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
       </div>
     </div>
   );
