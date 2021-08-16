@@ -7,6 +7,11 @@
   color: #000;
 }
 
+.dialogLink:hover {
+  color: var(--main-color);
+}
+
 .dialogLink.active {
+  font-weight: bold;
   color: var(--main-color);
 }

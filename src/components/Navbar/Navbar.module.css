@@ -17,17 +17,3 @@
 .listItem:nth-child(6) {
   padding: 60px 0 0 0;
 }
-
-.link {
-  color: var(--main-color);
-  text-decoration: none;
-}
-
-.link:hover {
-  color: white;
-}
-
-.link.active {
-  color: white;
-  cursor: default;
-}

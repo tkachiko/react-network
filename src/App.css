@@ -1,16 +1,3 @@
-:root {
-  --background-color: #282c34;
-  --main-color: #61dafb;
-  --font-size: 20px;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  user-select: none;
-}
-
 .app-wrapper {
   display: grid;
   grid-template-columns: 2fr 10fr;
