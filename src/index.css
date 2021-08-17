@@ -154,7 +154,7 @@ input[type='number'] {
   font-size: 1.1rem;
   border: 2px solid var(--gray-200);
   background-color: var(--gray-100);
-  color: var(--gray-800);
+  color: var(--background-color);
   border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
