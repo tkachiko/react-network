@@ -1,13 +1,14 @@
-import { useField } from 'formik';
+import { Field, useField } from 'formik';
+import styles from './FormsControls.module.css';
 
 const TextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
-      <input className='text-input' {...field} {...props} />
+      <Field className={meta.touched && meta.error ? `${styles.inputError}` : `${styles.textInput}`} {...field} {...props} />
       {meta.touched && meta.error ? (
-        <div className='error'>{meta.error}</div>
+        <span className={styles.error}>{meta.error}</span>
       ) : null}
     </>
   );
