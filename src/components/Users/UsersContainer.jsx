@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { WithAuthRedirect } from '../../HOC/WithAuthRedirect';
 import Preloader from '../common/Preloader/Preloader';
 import {
   getUsers,
@@ -63,6 +62,5 @@ const mapDispatchToProps = {
 };
 
 export default compose(
-  WithAuthRedirect,
   connect(mapStateToProps, mapDispatchToProps),
 )(UsersContainer);
