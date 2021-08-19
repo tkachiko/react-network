@@ -7,3 +7,7 @@
   color: var(--text-color);
   caret-color: var(--text-color);
 }
+
+.formSummaryError {
+  color: red;
+}

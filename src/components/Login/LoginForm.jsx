@@ -4,7 +4,7 @@ import TextInput from '../common/FormsControls/TextInput';
 import * as Yup from 'yup';
 import { login } from './../redux/auth-reducer';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import styles from './LoginPage.module.css';
 
 const LoginForm = props => {
   return (
@@ -19,11 +19,12 @@ const LoginForm = props => {
           email: Yup.string().required('Required'),
           password: Yup.string().required('Required'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          props.login(values.email, values.password, values.rememberMe);
+        onSubmit={(values, { setSubmitting, setFieldError, setStatus }) => {
+          props.login(values.email, values.password, values.rememberMe, setSubmitting, setFieldError, setStatus);
           setSubmitting(false);
         }}
       >
+        {({ status }) => (
         <Form>
           <TextInput
             label='Email'
@@ -38,8 +39,10 @@ const LoginForm = props => {
             placeholder='Password'
           />
           <Checkbox name='rememberMe'>Remember me</Checkbox>
+          <div className={styles.formSummaryError}>{status}</div>
           <button type='submit'>Sign in</button>
         </Form>
+        )}
       </Formik>
     </>
   );
