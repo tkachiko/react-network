@@ -51,12 +51,12 @@ export const getStatus = userId => {
   };
 };
 
-export const updateStatus = userId => {
+export const updateStatus = status => {
   // thunk
   return dispatch => {
-    profileAPI.getStatus(userId).then(data => {
+    profileAPI.updateStatus(status).then(data => {
       if (data.resultCode === 0) {
-        dispatch(setStatus(data));
+        dispatch(setStatus(status));
       }
     });
   };
