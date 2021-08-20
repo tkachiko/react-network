@@ -1,3 +1,11 @@
+.usersPage {
+  padding: 0 0 0 30px;
+}
+
+.user {
+  padding: 0 0 20px 0;
+}
+
 .userPhoto {
   width: 100px;
   border-radius: 50%;
@@ -8,6 +16,7 @@
   justify-content: space-between;
   color: var(--background-color);
   cursor: pointer;
+  padding: 10px 0 20px 0;
 }
 
 .page {
@@ -18,4 +27,10 @@
 .selectedPage {
   font-weight: bold;
   color: var(--main-color);
+}
+
+.button {
+  height: 30px;
+  width: 85px;
+  padding: 0;
 }

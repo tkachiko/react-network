@@ -11,7 +11,7 @@ const Users = props => {
   }
 
   return (
-    <div>
+    <div className={styles.usersPage}>
       <div className={styles.pages}>
         {pages.map(page => {
           return (
@@ -29,7 +29,7 @@ const Users = props => {
         })}
       </div>
       {props.users.map(user => (
-        <div key={user.id}>
+        <div key={user.id} className={styles.user}>
           <div>
             <div>
               <NavLink to={`/profile/${user.id}`}>
@@ -43,8 +43,13 @@ const Users = props => {
               </NavLink>
             </div>
             <div>
+              <div>{user.name}</div>
+              <div>{user.status}</div>
+            </div>
+            <div>
               {user.followed ? (
                 <button
+                  className={styles.button}
                   disabled={props.followingInProgress.some(
                     id => id === user.id,
                   )}
@@ -56,6 +61,7 @@ const Users = props => {
                 </button>
               ) : (
                 <button
+                  className={styles.button}
                   disabled={props.followingInProgress.some(
                     id => id === user.id,
                   )}
@@ -66,16 +72,6 @@ const Users = props => {
                   Follow
                 </button>
               )}
-            </div>
-          </div>
-          <div>
-            <div>
-              <div>{user.name}</div>
-              <div>{user.status}</div>
-            </div>
-            <div>
-              <div>{'user.location.country'}</div>
-              <div>{'user.location.city'}</div>
             </div>
           </div>
         </div>
