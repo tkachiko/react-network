@@ -1,4 +1,4 @@
-const SEND_MESSAGE = 'SEND-MESSAGE';
+const SEND_MESSAGE = 'dialogs/SEND-MESSAGE';
 
 const initialState = {
   dialogs: [
@@ -31,6 +31,7 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
+// action creators
 export const sendMessageActionCreator = text => ({ type: SEND_MESSAGE, text });
 
 export default dialogsReducer;

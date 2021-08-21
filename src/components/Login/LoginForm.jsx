@@ -2,11 +2,11 @@ import { Form, Formik } from 'formik';
 import Checkbox from '../common/FormsControls/Checkbox';
 import TextInput from '../common/FormsControls/TextInput';
 import * as Yup from 'yup';
-import { login } from './../redux/auth-reducer';
+import { login } from '../../redux/auth-reducer';
 import { connect } from 'react-redux';
 import styles from './LoginPage.module.css';
 
-const LoginForm = props => {
+const LoginForm = ({login}) => {
   return (
     <>
       <Formik
@@ -20,7 +20,7 @@ const LoginForm = props => {
           password: Yup.string().required('Required'),
         })}
         onSubmit={(values, { setSubmitting, setFieldError, setStatus }) => {
-          props.login(values.email, values.password, values.rememberMe, setSubmitting, setFieldError, setStatus);
+          login(values.email, values.password, values.rememberMe, setSubmitting, setFieldError, setStatus);
           setSubmitting(false);
         }}
       >

@@ -8,8 +8,15 @@ import {
   toggleIsFollowingProgress,
   follow,
   unfollow,
-} from '../redux/users-reducer';
-import {getUsers, getPageSize, getTotalUsersCount, getCurrentPage, getIsFetching, getFollowingInProgress} from './../redux/users-selectors';
+} from '../../redux/users-reducer';
+import {
+  getUsers,
+  getPageSize,
+  getTotalUsersCount,
+  getCurrentPage,
+  getIsFetching,
+  getFollowingInProgress,
+} from '../../redux/users-selectors';
 import Users from './Users';
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -61,6 +68,6 @@ const mapDispatchToProps = {
   unfollow,
 };
 
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-)(UsersContainer);
+export default compose(connect(mapStateToProps, mapDispatchToProps))(
+  UsersContainer,
+);

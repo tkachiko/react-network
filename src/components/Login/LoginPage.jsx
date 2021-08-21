@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from './../redux/auth-reducer';
+import { login } from '../../redux/auth-reducer';
 import LoginForm from './LoginForm';
 import styles from './LoginPage.module.css';
 
-const LoginPage = props => {
-  if (props.isAuth) {
+const LoginPage = ({isAuth}) => {
+  if (isAuth) {
     return <Redirect to='/profile' />;
   }
   return (

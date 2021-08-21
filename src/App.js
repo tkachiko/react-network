@@ -11,7 +11,7 @@ import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import ProfileContainer from './components/Profile/ProfileContainer';
-import { initializeApp } from './components/redux/app-reducer';
+import { initializeApp } from './redux/app-reducer';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 class App extends React.Component {

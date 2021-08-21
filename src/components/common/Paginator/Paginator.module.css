@@ -1,0 +1,17 @@
+.pages {
+  display: flex;
+  justify-content: space-between;
+  color: var(--background-color);
+  cursor: pointer;
+  padding: 10px 0 20px 0;
+}
+
+.page {
+  width: 30px;
+  text-align: center;
+}
+
+.selectedPage {
+  font-weight: bold;
+  color: var(--main-color);
+}
