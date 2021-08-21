@@ -4,14 +4,16 @@ import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = ({ posts, addPost }) => {
-  const postsElements = posts.map(post => (
-    <Post
-      message={post.message}
-      likesCount={post.likesCount}
-      key={post.id}
-      id={post.id}
-    />
-  ));
+  const postsElements = posts
+    .map(post => (
+      <Post
+        message={post.message}
+        likesCount={post.likesCount}
+        key={post.id}
+        id={post.id}
+      />
+    ))
+    .reverse();
 
   return (
     <div className={styles.posts}>

@@ -3,6 +3,7 @@ import { profileAPI } from '../../API/API';
 const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE_NEW_POST_TEXT';
 const SET_STATUS = 'SET_STATUS';
+const DELETE_POST = 'DELETE_POST';
 
 const initialState = {
   posts: [
@@ -19,6 +20,11 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         posts: [...state.posts, {id: 3, message: action.text}],
       };
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter(p => p.id !== action.postId),
+      };
     case SET_STATUS:
       return { ...state, status: action.status };
     case SET_USER_PROFILE:
@@ -30,6 +36,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const setUserProfile = profile => ({ type: SET_USER_PROFILE, profile });
 export const addPostActionCreator = (text) => ({ type: ADD_POST, text });
+export const deletePost = (postId) => ({ type: DELETE_POST, postId });
 export const setStatus = status => ({ type: SET_STATUS, status });
 
 // thunk creators
