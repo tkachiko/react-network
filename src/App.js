@@ -14,6 +14,9 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import { initializeApp } from './redux/app-reducer';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from './redux/redux-store';
 class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp();
@@ -44,7 +47,19 @@ const mapStateToProps = state => ({
   initialized: state.app.initialized,
 });
 
-export default compose(
+const AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializeApp }),
 )(App);
+
+const SocialNetworkApp = props => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  );
+};
+
+export default SocialNetworkApp;
