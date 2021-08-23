@@ -1,16 +1,13 @@
-import React, { lazy } from 'react';
-import { connect } from 'react-redux';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { connect, Provider } from 'react-redux';
+import { HashRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import './App.css';
 import Preloader from './components/common/Preloader/Preloader';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import { initializeApp } from './redux/app-reducer';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import store from './redux/redux-store';
-import { Suspense } from 'react';
 
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
@@ -63,11 +60,11 @@ const AppContainer = compose(
 
 const SocialNetworkApp = props => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
