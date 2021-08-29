@@ -1,12 +1,14 @@
 import { authAPI } from '../API/API';
 
 const SET_USER_DATA = 'auth/SET_USER_DATA';
+const STOP_SUBMIT = 'STOP_SUBMIT';
 
 const initialState = {
   userId: null,
   email: null,
   login: null,
   isAuth: false,
+  error: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -16,6 +18,8 @@ const authReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
       };
+      case STOP_SUBMIT:
+        return {...state, error: action.error };
     default:
       return state;
   }
@@ -26,6 +30,8 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({
   type: SET_USER_DATA,
   payload: { userId, login, email, isAuth },
 });
+
+export const stopSubmit = (error) => ({ type: STOP_SUBMIT, error });
 
 // thunk creators
 export const getAuthUserData = () => async dispatch => {

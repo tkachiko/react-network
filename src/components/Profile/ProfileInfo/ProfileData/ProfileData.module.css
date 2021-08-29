@@ -1,0 +1,19 @@
+ul > li > h5 {
+  display: inline;
+}
+
+li {
+  list-style: none;
+}
+
+.heading {
+  display: inline;
+}
+
+.contacts__item {
+  padding: 0 0 0 20px;
+}
+
+.formSummaryError {
+  color: red;
+}

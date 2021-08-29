@@ -37,8 +37,8 @@ class App extends React.Component {
       <div className='app-wrapper'>
         <HeaderContainer />
         <Navbar />
-        <Switch>
-          <div className='app-wrapper__content'>
+        <div className='app-wrapper__content'>
+          <Switch>
             <Route exact path='/' render={() => <Redirect to='/profile' />} />
             <Route
               path='/profile/:userId?'
@@ -53,8 +53,8 @@ class App extends React.Component {
             <Route path='/users' render={() => <UsersContainer />} />
             <Route path='/settings' render={() => <Settings />} />
             <Route path='/login' render={() => <LoginPage />} />
-          </div>
-        </Switch>
+          </Switch>
+        </div>
       </div>
     );
   }
@@ -69,7 +69,7 @@ const AppContainer = compose(
   connect(mapStateToProps, { initializeApp }),
 )(App);
 
-const SocialNetworkApp = props => {
+const SocialNetworkApp = () => {
   return (
     <HashRouter>
       <Provider store={store}>

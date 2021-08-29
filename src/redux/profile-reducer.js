@@ -5,6 +5,8 @@ const SET_USER_PROFILE = 'profile/SET_USER_PROFILE_NEW_POST_TEXT';
 const SET_STATUS = 'profile/SET_STATUS';
 const DELETE_POST = 'profile/DELETE_POST';
 const SET_PHOTO = 'profile/SET_PHOTO';
+const SAVE_PROFILE_SUCCESS = 'SAVE_PROFILE_SUCCESS';
+const STOP_SUBMIT = 'STOP_SUBMIT';
 
 const initialState = {
   posts: [
@@ -12,6 +14,9 @@ const initialState = {
     { id: 2, message: `It's my first post!`, likesCount: 15 },
   ],
   profile: null,
+  name: null,
+  status: '',
+  error: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -19,7 +24,10 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       return {
         ...state,
-        posts: [...state.posts, { id: state.posts.length + 1, message: action.text }],
+        posts: [
+          ...state.posts,
+          { id: state.posts.length + 1, message: action.text },
+        ],
       };
     case DELETE_POST:
       return {
@@ -29,9 +37,12 @@ const profileReducer = (state = initialState, action) => {
     case SET_STATUS:
       return { ...state, status: action.status };
     case SET_PHOTO:
-      return {...state, profile: {...state.profile, photos: action.photos }}
+      return { ...state, profile: { ...state.profile, photos: action.photos } };
     case SET_USER_PROFILE:
+    case SAVE_PROFILE_SUCCESS:
       return { ...state, profile: action.profile };
+      case STOP_SUBMIT:
+            return {...state, error: action.error };
     default:
       return state;
   }
@@ -43,6 +54,11 @@ export const addPostActionCreator = text => ({ type: ADD_POST, text });
 export const deletePost = postId => ({ type: DELETE_POST, postId });
 export const setStatus = status => ({ type: SET_STATUS, status });
 export const setPhoto = photos => ({ type: SET_PHOTO, photos });
+export const saveProfileSuccess = profile => ({
+  type: SAVE_PROFILE_SUCCESS,
+  profile
+});
+export const stopSubmit = error => ({ type: STOP_SUBMIT, error });
 
 // thunk creators
 export const getUserProfile = userId => async dispatch => {
@@ -67,6 +83,23 @@ export const updatePhoto = file => async dispatch => {
   if (response.data.resultCode === 0) {
     dispatch(setPhoto(response.data.data.photos));
   }
-}
+};
+
+export const saveProfile = (profile, setEditMode) => async (dispatch, getState) => {
+  const userId = getState().auth.userId;
+  const response = await profileAPI.saveProfile(profile);
+  if (response.data.resultCode === 0) {
+    dispatch(getUserProfile(userId));
+    setEditMode(false);
+  } 
+  else {
+    let error =
+      response.data.messages.length > 0
+        ? response.data.messages[0]
+        : 'Some error';
+    dispatch(stopSubmit(error));
+    setEditMode(true);
+  }
+};
 
 export default profileReducer;

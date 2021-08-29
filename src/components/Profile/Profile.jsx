@@ -1,7 +1,7 @@
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = ({profile, status, updateStatus, isOwner, updatePhoto}) => {
+const Profile = ({profile, status, updateStatus, isOwner, updatePhoto, saveProfile}) => {
   return (
     <main>
       <ProfileInfo
@@ -10,6 +10,7 @@ const Profile = ({profile, status, updateStatus, isOwner, updatePhoto}) => {
         updateStatus={updateStatus}
         isOwner={isOwner}
         updatePhoto={updatePhoto}
+        saveProfile={saveProfile}
       />
       <MyPostsContainer />
     </main>
