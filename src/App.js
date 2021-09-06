@@ -5,12 +5,11 @@ import {
   Redirect,
   Route,
   Switch,
-  withRouter,
+  withRouter
 } from 'react-router-dom';
 import { compose } from 'redux';
 import './App.css';
 import Preloader from './components/common/Preloader/Preloader';
-import withSuspect from './HOC/WithSuspect';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './components/Login/LoginPage';
 import Music from './components/Music/Music';
@@ -19,6 +18,7 @@ import News from './components/News/News';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
+import withSuspect from './HOC/WithSuspect';
 import { initializeApp } from './redux/app-reducer';
 import store from './redux/redux-store';
 
@@ -53,6 +53,7 @@ class App extends React.Component {
             <Route path='/users' render={() => <UsersContainer />} />
             <Route path='/settings' render={() => <Settings />} />
             <Route path='/login' render={() => <LoginPage />} />
+            <Route path='*' render={() => <div>404 Not Found</div>} />
           </Switch>
         </div>
       </div>

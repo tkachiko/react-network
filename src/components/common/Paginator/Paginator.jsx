@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './Paginator.module.css';
+import cn from "classnames";
 
 const Paginator = ({
   totalItemsCount,
@@ -26,7 +27,7 @@ const Paginator = ({
   );
 
   return (
-    <div className={styles.paginator}>
+    <div className={cn(styles.paginator)}>
       {portionNumber > 1 && (
         <button className={styles.button}
           onClick={() => {
@@ -44,9 +45,9 @@ const Paginator = ({
         .map(page => {
           return (
             <span
-              className={`${styles.page} ${
-                currentPage === page && styles.selectedPage
-              }`}
+            className={cn({
+              [styles.selectedPage]: currentPage === page
+            }, styles.pageNumber)}
               key={page}
               onClick={() => {
                 onPageChanged(page);
