@@ -1,4 +1,3 @@
-import { Form } from 'formik';
 import Checkbox from '../common/FormsControls/Checkbox';
 import TextInput from '../common/FormsControls/TextInput';
 import styles from './LoginPage.module.css';
@@ -6,7 +5,6 @@ import styles from './LoginPage.module.css';
 const LoginForm = ({ captchaUrl, error, status }) => {
   return (
     <>
-      <Form>
         <TextInput
           label='Email'
           name='email'
@@ -33,7 +31,6 @@ const LoginForm = ({ captchaUrl, error, status }) => {
           {error}
         </div>
         <button type='submit'>Sign in</button>
-      </Form>
     </>
   );
 };

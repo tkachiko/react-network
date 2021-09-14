@@ -1,19 +1,21 @@
 .nav {
-  background-color: var(--background-color);
+  background-color: #fff;
   grid-row: 2 / 3;
   grid-column: 1 / 2;
   font-size: var(--font-size);
+  height: fit-content;
+  border-right: 1px solid var(--gray-200);
+  border-radius: 10px;
+  margin: 1rem;
 }
-
 .list {
-  padding: 30px 115px 0 30px;
+  padding: 1rem;
 }
-
 .listItem {
   list-style: none;
-  padding: 0 0 20px 0;
+  padding: 0 0 .7rem 0;
+  color: #777d74;
 }
-
-.listItem:nth-child(6) {
-  padding: 60px 0 0 0;
+.listItem:nth-child(3) {
+  padding: 0;
 }

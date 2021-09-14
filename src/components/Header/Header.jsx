@@ -1,19 +1,25 @@
 import { NavLink } from 'react-router-dom';
-import logo from './../../logo.svg';
+import logo from './../../assets/images/logo512.png';
 import styles from './Header.module.css';
+import logoutIcon from './../../assets/images/logout-icon.png';
 
 const Header = ({ isAuth, login, logout }) => {
   return (
     <header className={styles.header}>
-      <img src={logo} className={styles.logo} alt='logo' />
+      <div className={styles.logoBlock}>
+        <NavLink to='/profile'>
+          <img src={logo} className={styles.logo} alt='logo' />
+          <h1 className={styles.headerHeading}>Network</h1>
+        </NavLink>
+      </div>
       <div className={styles.loginBlock}>
         {isAuth ? (
-          <div>
-            {login} -{' '}
+          <>
+            <p>{login}</p>
             <button onClick={logout} className={styles.button}>
-              Sign out
-            </button>{' '}
-          </div>
+              <img src={logoutIcon} alt='log out' />
+            </button>
+          </>
         ) : (
           <NavLink to={'/login'}>Sign in</NavLink>
         )}

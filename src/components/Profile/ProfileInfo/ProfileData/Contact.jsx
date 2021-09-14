@@ -2,10 +2,11 @@ import styles from './ProfileData.module.css';
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
-    <li className={styles.contacts__item}>
-      <h5>{contactTitle}: </h5>
-      <span>{contactValue}</span>
-    </li>
+    <div className={styles.contacts__item}>
+      <a href={contactValue} target='_blank' rel="noreferrer">{contactTitle}
+      <img src={contactTitle} alt="" />
+      </a>
+    </div>
   );
 };
 
