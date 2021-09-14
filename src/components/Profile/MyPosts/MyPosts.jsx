@@ -1,5 +1,4 @@
 import { Form, Formik } from 'formik';
-import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 
@@ -18,6 +17,7 @@ const MyPosts = ({ posts, addPost }) => {
   return (
     <div className={styles.posts}>
       <div>
+      Create Post
         <Formik
           initialValues={{ post: '' }}
           onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -27,7 +27,14 @@ const MyPosts = ({ posts, addPost }) => {
           }}
         >
           {({ values, handleChange, handleSubmit }) => (
-            <Form>
+            <Form
+              onKeyDown={e => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSubmit();
+                }
+              }}
+            >
               <div>
                 <textarea
                   name='post'
@@ -38,7 +45,12 @@ const MyPosts = ({ posts, addPost }) => {
                 />
               </div>
               <div className={styles.buttonWrapper}>
-                <input onSubmit={handleSubmit} type='submit' value='Send' />
+                <input
+                  onSubmit={handleSubmit}
+                  onKeyDown={onkeydown}
+                  type='submit'
+                  value='Send'
+                />
               </div>
             </Form>
           )}

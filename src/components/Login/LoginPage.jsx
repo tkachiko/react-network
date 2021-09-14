@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -38,13 +38,22 @@ const LoginPage = ({ isAuth, captchaUrl, error, login }) => {
           setSubmitting(false);
         }}
       >
-        {({ isSubmitting, status }) => (
-          <LoginForm
-            captchaUrl={captchaUrl}
-            error={error}
-            isSubmitting={isSubmitting}
-            status={status}
-          />
+        {({ isSubmitting, status, handleSubmit }) => (
+          <Form
+            onKeyDown={e => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit();
+              }
+            }}
+          >
+            <LoginForm
+              captchaUrl={captchaUrl}
+              error={error}
+              isSubmitting={isSubmitting}
+              status={status}
+            />
+          </Form>
         )}
       </Formik>
     </div>
