@@ -3,11 +3,11 @@ import styles from './DialogItem.module.css';
 
 const DialogItem = ({id, name}) => {
   return (
-    <div className={styles.dialogItem}>
+    <>
       <NavLink to={`/dialogs/${id}`} className={styles.dialogLink} activeClassName={styles.active}>
-        {name}
+        <div className={styles.dialogItem}>{name}</div>
       </NavLink>
-    </div>
+    </>
   );
 };
 

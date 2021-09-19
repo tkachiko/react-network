@@ -1,29 +1,83 @@
+h4 {
+  display: inline-block;
+  color: var(--gray-600);
+  font-weight: 300;
+  font-size: 1.2rem;
+  padding-left: 1rem;
+}
+.name {
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 .dialogs {
   display: grid;
-  grid-template-columns: 4fr 8fr;
+  grid-template-columns: 1fr 4fr;
 }
-
+.dialogsBlockWrapper,
+.dialogsItemsWrapper {
+  height: auto;
+  border-right: 1px solid var(--gray-200);
+  background-color: #fff;
+  border-radius: 10px;
+}
 .dialogsItems {
-  padding: 20px 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 13px;
 }
-
+.messagesHeading {
+  position: relative;
+}
 .messages {
   padding: 20px 0 0 20px;
+  overflow-y: auto;
 }
-
-.inputBlock {
-  padding: 0 0 0 20px;
-}
-
-.textarea {
-  width: 300px;
-  height: 100px;
-  resize: none;
-}
-
-.buttonWrapper {
-  width: 300px;
-  padding: 10px 0 0 0;
+.messagesList {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: calc(100vh - 16rem);
+  max-height: calc(100vh - 16rem);
+  height: fit-content;
+  padding: 1rem .5rem 1rem 1rem;
+  background: url('./../../assets/images/chat-background.jpeg') no-repeat scroll center center;
+  background-size: cover;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.messagesList::-webkit-scrollbar-thumb {
+  background-color: #50b5ff;
+  border-radius: 10px;
+}
+.messagesList::-webkit-scrollbar {
+  overflow-y: auto;
+  scrollbar-color: #50b5ff rgba(80,181,255,.2);
+  scrollbar-width: thin;
+}
+.messagesList img {
+  width: 50px;
+}
+.inputBlock {
+  padding:.5rem;
+}
+.textarea {
+  resize: none;
+  width: calc(100% - 0.1rem * 2);
+  height: 4rem;
+  padding: .5rem;
+  font-size: 13px;
+  background-color: white;
+  border-radius: 10px;
+}
+.textareaBlock {
+  display: flex;
+}
+.buttonWrapper {
+  float: right;
+}
+.buttonWrapper input {
+  margin: .7rem 0 .7rem .5rem;
+  padding: .5rem;
 }

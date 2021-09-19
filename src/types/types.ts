@@ -30,9 +30,27 @@ export type ProfileType = {
 };
 
 export type UserType = {
-  id: number
-  name: string
-  status: string
-  photos: PhotosType
-  followed: boolean
- }
+  id: number;
+  name: string;
+  status: string;
+  photos: PhotosType;
+  followed: boolean;
+};
+
+export type DialogType = {
+  id: number;
+  name: string;
+  companions: Array<number>;
+};
+
+export type MessageType = {
+  id: number;
+  dialogId: number;
+  authorId: number;
+  message: string;
+};
+
+export type AuthorType = {
+  id: number;
+  name: string;
+};
