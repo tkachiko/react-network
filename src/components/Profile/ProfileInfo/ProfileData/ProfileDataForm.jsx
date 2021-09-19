@@ -38,53 +38,55 @@ const ProfileDataForm = ({
         }}
       >
         <Form>
-          <div>
-            <button type='submit' disabled={isSubmitting}>
-              save
-            </button>
-          </div>
           {error && <div className={styles.formSummaryError}>{error}</div>}
-          <div>
-            <b>Full Name:</b>
-            <TextInput type='text' name='fullName' placeholder='Full Name' />
-          </div>
-          <div>
-            <div>
-              <b>Looking for a job: </b>
+          <div className={styles.inputBlockContainer}>
+            <div className={styles.inputBlock}>
+              <h6 className={styles.heading}>Full name:</h6>
+              <TextInput type='text' name='fullName' placeholder='Full name' />
+            </div>
+            <div className={styles.inputBlock}>
+              <h6 className={styles.heading}>Looking for a job&nbsp;</h6>
               <Checkbox name='lookingForAJob' />
             </div>
-            <div>
-              <b>My professional skills: </b>
+            <div className={styles.inputBlock}>
+              <h6 className={styles.heading}>Description: </h6>
               <TextArea
                 type='text'
                 name='lookingForAJobDescription'
-                placeholder='My professional skills'
+                placeholder='Tell about your professional skills and what kind of job you are looking for'
               />
             </div>
-            <div>
-              <b>About me: </b>
+            <div className={styles.inputBlock}>
+              <h6 className={styles.heading}>About me: </h6>
               <TextInput
                 type='text'
                 name='aboutMe'
-                placeholder='Tell about yourself'
+                placeholder='Some info about you'
               />
             </div>
-            <div>
-              <b>Contacts:</b>
-              {Object.keys(profile.contacts).map(key => {
-                return (
-                  <div key={key} className={styles.contact}>
-                    <b>
-                      {key}
+            <div className={styles.inputBlock}>
+              <div className={styles.contactsForm}>
+                {Object.keys(profile.contacts).map(key => {
+                  return (
+                    <div key={key} className={styles.contact}>
+                      <h6 className={`${styles.heading} ${styles.headingForm}`}>
+                        <div>{`${key}${':'}`}</div>
+                      </h6>
                       <TextInput
                         type='text'
                         name={'contacts.' + key}
                         placeholder={key}
+                        className={styles.contactsSocials}
                       />
-                    </b>
-                  </div>
-                );
-              })}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className={styles.buttonSave}>
+              <button type='submit' disabled={isSubmitting}>
+                Save
+              </button>
             </div>
           </div>
         </Form>

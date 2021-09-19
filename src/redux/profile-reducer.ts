@@ -31,7 +31,7 @@ const profileReducer = (
         ...state,
         posts: [
           ...state.posts,
-          { id: state.posts.length + 1, message: action.text },
+          { id: state.posts.length + 1, message: action.text, likesCount: 0 },
         ],
       };
     case DELETE_POST:

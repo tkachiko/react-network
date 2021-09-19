@@ -3,7 +3,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = ({profile, status, updateStatus, isOwner, updatePhoto, saveProfile}) => {
   return (
-    <main>
+    <>
       <ProfileInfo
         profile={profile}
         status={status}
@@ -13,7 +13,7 @@ const Profile = ({profile, status, updateStatus, isOwner, updatePhoto, saveProfi
         saveProfile={saveProfile}
       />
       <MyPostsContainer />
-    </main>
+    </>
   );
 };
 

@@ -1,14 +1,12 @@
-import { useField } from "formik";
+import { useField } from 'formik';
 
 export const Textarea = ({ ...props }) => {
-	const [field] = useField(props);
-	return (
-		<>
-		<div>
-		<textarea {...field} {...props} />
-		</div>	
-		</>
-	);
+  const [field] = useField(props);
+  return (
+    <>
+      <textarea {...field} {...props} />
+    </>
+  );
 };
 
 export default Textarea;

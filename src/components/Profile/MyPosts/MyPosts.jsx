@@ -15,9 +15,9 @@ const MyPosts = ({ posts, addPost }) => {
     .reverse();
 
   return (
-    <div className={styles.posts}>
-      <div>
-      Create Post
+    <>
+      <div className={styles.posts}>
+        <h5>Create Post</h5>
         <Formik
           initialValues={{ post: '' }}
           onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -35,7 +35,7 @@ const MyPosts = ({ posts, addPost }) => {
                 }
               }}
             >
-              <div>
+              <div className={styles.textareaBlock}>
                 <textarea
                   name='post'
                   onChange={handleChange}
@@ -43,21 +43,21 @@ const MyPosts = ({ posts, addPost }) => {
                   placeholder="What's on your mind?"
                   className={styles.textarea}
                 />
-              </div>
               <div className={styles.buttonWrapper}>
                 <input
                   onSubmit={handleSubmit}
                   onKeyDown={onkeydown}
                   type='submit'
-                  value='Send'
+                  value='Add post'
                 />
+              </div>
               </div>
             </Form>
           )}
         </Formik>
       </div>
       <div className={styles.item}>{postsElements}</div>
-    </div>
+    </>
   );
 };
 
