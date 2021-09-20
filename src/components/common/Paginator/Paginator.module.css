@@ -1,18 +1,21 @@
 .paginator {
   display: flex;
-  width: 60vw;
+  justify-content: center;
+  align-items: center;
+}
+.pages {
+  display: flex;
+  width: 80%;
   justify-content: space-between;
   color: var(--background-color);
   cursor: pointer;
-  padding: 10px 0 20px 0;
+  padding: 0 1rem 0 1rem;
 }
-
 .page {
   width: 100%;
   text-align: center;
   padding: 5px;
 }
-
 .selectedPage {
   font-weight: bold;
   color: var(--main-color);

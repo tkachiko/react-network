@@ -10,27 +10,27 @@ const Users = ({
   users,
   followingInProgress,
   follow,
-  unfollow
+  unfollow,
 }) => {
   return (
     <div className={styles.usersPage}>
+      <ul className={styles.usersList}>
+        {users.map(user => (
+          <User
+            key={user.id}
+            user={user}
+            followingInProgress={followingInProgress}
+            follow={follow}
+            unfollow={unfollow}
+          />
+        ))}
+      </ul>
       <Paginator
         totalItemsCount={totalUsersCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChanged={onPageChanged}
       />
-      <ul className={styles.usersList}>
-      {users.map(user => (
-        <li className={styles.user}><User
-          key={user.id}         
-          user={user}
-          followingInProgress={followingInProgress}
-          follow={follow}
-          unfollow={unfollow}
-        /></li>
-      ))}
-      </ul>
     </div>
   );
 };

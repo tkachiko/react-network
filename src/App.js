@@ -36,6 +36,7 @@ class App extends React.Component {
     return (
       <div className='app-wrapper'>
         <HeaderContainer />
+        <div className='app-wrapper__container'>
         <Navbar />
         <div className='app-wrapper__content'>
           <Switch>
@@ -55,6 +56,8 @@ class App extends React.Component {
             <Route path='/login' render={() => <LoginPage />} />
             <Route path='*' render={() => <div>404 Not Found</div>} />
           </Switch>
+        </div>
+
         </div>
       </div>
     );

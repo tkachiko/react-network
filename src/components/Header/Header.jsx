@@ -6,23 +6,25 @@ import logoutIcon from './../../assets/images/logout-icon.png';
 const Header = ({ isAuth, login, logout }) => {
   return (
     <header className={styles.header}>
-      <div className={styles.logoBlock}>
-        <NavLink to='/profile'>
-          <img src={logo} className={styles.logo} alt='logo' />
-          <h1 className={styles.headerHeading}>Network</h1>
-        </NavLink>
-      </div>
-      <div className={styles.loginBlock}>
-        {isAuth ? (
-          <>
-            <p>{login}</p>
-            <button onClick={logout} className={styles.button}>
-              <img src={logoutIcon} alt='log out' />
-            </button>
-          </>
-        ) : (
-          <NavLink to={'/login'}>Sign in</NavLink>
-        )}
+      <div className={styles.headerContent}>
+        <div className={styles.logoBlock}>
+          <NavLink to='/profile'>
+            <img src={logo} className={styles.logo} alt='logo' />
+            <h1 className={styles.headerHeading}>Network</h1>
+          </NavLink>
+        </div>
+        <div className={styles.loginBlock}>
+          {isAuth ? (
+            <>
+              <p>{login}</p>
+              <button onClick={logout} className={styles.button}>
+                <img src={logoutIcon} alt='log out' />
+              </button>
+            </>
+          ) : (
+            <NavLink to={'/login'}>Sign in</NavLink>
+          )}
+        </div>
       </div>
     </header>
   );

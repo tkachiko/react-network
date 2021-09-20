@@ -40,29 +40,31 @@ const Paginator = ({
           PREV
         </button>
       )}
-      {pages
-        .filter(
-          page =>
-            page >= leftPortionPageNumber && page <= rightPortionPageNumber,
-        )
-        .map(page => {
-          return (
-            <span
-              className={cn(
-                {
-                  [styles.selectedPage]: currentPage === page,
-                },
-                styles.pageNumber,
-              )}
-              key={page}
-              onClick={() => {
-                onPageChanged(page);
-              }}
-            >
-              {page}
-            </span>
-          );
-        })}
+      <div className={cn(styles.pages)}>
+        {pages
+          .filter(
+            page =>
+              page >= leftPortionPageNumber && page <= rightPortionPageNumber,
+          )
+          .map(page => {
+            return (
+              <span
+                className={cn(
+                  {
+                    [styles.selectedPage]: currentPage === page,
+                  },
+                  styles.pageNumber,
+                )}
+                key={page}
+                onClick={() => {
+                  onPageChanged(page);
+                }}
+              >
+                {page}
+              </span>
+            );
+          })}
+      </div>
       {portionCount > portionNumber && (
         <button
           className={styles.button}
