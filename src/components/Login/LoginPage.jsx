@@ -4,15 +4,13 @@ import { Redirect } from 'react-router-dom';
 import * as Yup from 'yup';
 import { login } from './../../redux/auth-reducer';
 import LoginForm from './LoginForm';
-import styles from './LoginPage.module.css';
 
 const LoginPage = ({ isAuth, captchaUrl, error, login }) => {
   if (isAuth) {
     return <Redirect to='/profile' />;
   }
   return (
-    <div className={styles.loginForm}>
-      <h1>Sign in</h1>
+    <>
       <Formik
         initialValues={{
           email: '',
@@ -21,8 +19,8 @@ const LoginPage = ({ isAuth, captchaUrl, error, login }) => {
           captcha: '',
         }}
         validationSchema={Yup.object({
-          email: Yup.string().required('Required'),
-          password: Yup.string().required('Required'),
+          email: Yup.string().required('Required field'),
+          password: Yup.string().required('Required field'),
         })}
         onSubmit={(values, { setSubmitting, setFieldError, setStatus }) => {
           login(
@@ -56,7 +54,7 @@ const LoginPage = ({ isAuth, captchaUrl, error, login }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </>
   );
 };
 
