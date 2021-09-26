@@ -16,17 +16,16 @@ const DialogContainer = ({
   setActiveDialog,
   ...props
 }) => {
+  const propsDialogId = Number.parseInt(props.match.params.dialogId);
   const [currentDialogId, setCurrentDialogId] = useState(null);
 
   useEffect(() => {
-    setActiveDialog(currentDialogId);
-  }, [currentDialogId]);
+    setActiveDialog(propsDialogId);
+  });
 
   useEffect(() => {
-    setCurrentDialogId(
-      Number.parseInt(props.match.params.dialogId) || activeDialogId,
-    );
-  }, [Number.parseInt(props.match.params.dialogId)]);
+    setCurrentDialogId(currentDialogId || activeDialogId);
+  }, [currentDialogId, activeDialogId]);
 
   const findCompanion = authorId =>
     authors.find(author => author.id === authorId);

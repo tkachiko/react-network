@@ -11,8 +11,8 @@ const STOP_SUBMIT = 'STOP_SUBMIT';
 
 const initialState = {
   posts: [
-    { id: 1, message: 'Hi how are you?', likesCount: 7 },
-    { id: 2, message: `It's my first post!`, likesCount: 15 },
+    { id: 1, message: `It's my first post!`, likesCount: 15 },
+    { id: 2, message: 'Hi how are you?', likesCount: 7 },
   ] as Array<PostType>,
   profile: null as ProfileType | null,
   status: '',

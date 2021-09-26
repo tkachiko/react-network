@@ -36,3 +36,20 @@
 .likeButton img {
   width: 20px;
 }
+.heart {
+  width:20px;
+  height:20px;
+  background:
+   radial-gradient(circle at 60% 65%, var(--main-color) 64%, transparent 65%) top left,
+   radial-gradient(circle at 40% 65%, var(--main-color) 64%, transparent 65%) top right,
+   linear-gradient(to bottom left, var(--main-color) 43%,transparent 43%) bottom left ,
+   linear-gradient(to bottom right,var(--main-color) 43%,transparent 43%) bottom right;
+  background-size:50% 50%;
+  background-repeat:no-repeat;
+  display:inline-block;
+}
+.heart::before {
+  content:"";
+  display:block;
+  padding-top:100%;
+}

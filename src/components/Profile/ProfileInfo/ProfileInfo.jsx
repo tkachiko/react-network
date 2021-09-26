@@ -47,9 +47,7 @@ const ProfileInfo = ({
                   className={styles.userPhoto}
                   alt='user avatar'
                 />
-                <button className={styles.uploadBtn}>
-                  Change photo
-                </button>
+                <span className={styles.uploadBtn}>Change photo</span>
               </label>
               <input
                 type='file'

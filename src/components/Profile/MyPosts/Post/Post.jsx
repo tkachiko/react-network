@@ -1,5 +1,4 @@
 import styles from './Post.module.css';
-import heartIcon from './../../../../assets/images/heart.png';
 
 const Post = ({ message, likesCount }) => {
   return (
@@ -7,7 +6,7 @@ const Post = ({ message, likesCount }) => {
       <div className={styles.item}>
         <img
           src='https://avatarfiles.alphacoders.com/253/thumb-253458.jpg'
-          alt='avatar'
+          alt=''
         />
         <span className={styles.post}>{message}</span>
       </div>
@@ -15,7 +14,7 @@ const Post = ({ message, likesCount }) => {
         <span className={styles.likeContainer}>
           <span>{likesCount}</span>
           <button className={styles.likeButton}>
-            <img src={heartIcon} alt='' />
+            <div className={styles.heart}></div>
           </button>
         </span>
       </div>

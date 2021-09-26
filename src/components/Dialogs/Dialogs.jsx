@@ -18,7 +18,7 @@ const Dialogs = ({
       name={dialog.name}
       key={dialog.id}
       id={dialog.id}
-      activeDialogId={dialog.activeDialogId}
+      activeDialogId={activeDialogId}
     />
   ));
   const messagesElemnts = messages.map(message => (
