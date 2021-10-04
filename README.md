@@ -25,7 +25,6 @@ Some components have hardcoded data in state since there's no API for them.
 - yup
 - context API
 - React Hooks
-<img width="1433" alt="image" src="https://user-images.githubusercontent.com/71289347/135905220-22bf740b-951d-40ae-b16b-567dabc97e80.png">
 
 ## Screenshots of the app
 
