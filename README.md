@@ -1,6 +1,6 @@
 # React Network
 
-### [Link to demo](https://tkachiko.github.io/social-network/#/profile)
+### [Link to demo](https://tkachiko.github.io/react-network/#/profile)
 
 ## About app
 
