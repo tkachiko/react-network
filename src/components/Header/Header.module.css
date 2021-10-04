@@ -23,7 +23,6 @@
   pointer-events: none;
   max-width: 5rem;
   width: 100%;
-  padding-left: 1rem;
 }
 .headerHeading {
   margin: 0 auto;
@@ -48,6 +47,7 @@
 .loginBlock a {
   text-decoration: none;
   padding: 20px;
+  color: var(--main-color);
 }
 .button {
   padding: 0 0 0 1rem;

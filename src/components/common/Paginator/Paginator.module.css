@@ -24,10 +24,6 @@
   text-align: center;
   padding: 5px;
 }
-.selectedPage {
-  font-weight: bold;
-  color: var(--main-color);
-}
 .pageNumber {
   color: var(--main-color);
   background-color: var(--white);
@@ -36,6 +32,12 @@
   place-content: center;
   place-items: center;
   place-self: center;
+  cursor: pointer;
+}
+.selectedPage {
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: var(--white);
 }
 .button__left,
 .button__right,
