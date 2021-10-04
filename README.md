@@ -2,6 +2,10 @@
 
 ### [Link to demo](https://tkachiko.github.io/react-network/#/profile)
 
+## Note
+
+This version of the project has been adapted for desktop only.
+
 ## About app
 
 Single page application built with React ecosystem.\
