@@ -21,7 +21,7 @@
 }
 .logo {
   pointer-events: none;
-  max-width: 5rem;
+  max-width: 80px;
   width: 100%;
 }
 .headerHeading {
